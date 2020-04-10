@@ -14,7 +14,6 @@
 
 use bitcoin::{Block, Transaction, TxIn, TxOut, OutPoint, Script};
 use bitcoin::hash_types::*;
-use bitcoin::hashes::{sha256, sha256d, ripemd160, hash160};
 
 use super::scripts::*;
 
@@ -32,24 +31,13 @@ impl BitcoinData for OutPoint { }
 impl BitcoinData for BlockHash { }
 impl BitcoinData for Txid { }
 impl BitcoinData for Wtxid { }
-impl BitcoinData for PubkeyHash { }
-impl BitcoinData for WPubkeyHash { }
-impl BitcoinData for ScriptHash { }
-impl BitcoinData for WScriptHash { }
 impl BitcoinData for SigHash { }
 impl BitcoinData for TxMerkleNode { }
 impl BitcoinData for WitnessMerkleNode { }
-impl BitcoinData for WitnessCommitment { }
-impl BitcoinData for XpubIdentifier { }
 impl BitcoinData for FilterHash { }
 
-impl BitcoinData for sha256::Hash { }
-impl BitcoinData for sha256d::Hash { }
-impl BitcoinData for ripemd160::Hash { }
-impl BitcoinData for hash160::Hash { }
-
 /// Marker trait for all possible Bitcoin script variants
-pub trait ScriptData: BitcoinData { }
+pub trait ScriptData { }
 
 impl ScriptData for Script { }
 impl ScriptData for LockScript { }
