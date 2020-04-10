@@ -37,21 +37,34 @@ extern crate rand;
 extern crate num_integer;
 extern crate num_derive;
 extern crate num_traits;
+#[macro_use]
+pub extern crate bitcoin;
+
+// Logging
 #[cfg(feature="use-log")]
 #[macro_use]
 extern crate log;
+
+// Async IO, IPC & networking
 #[cfg(feature="use-tokio")]
 extern crate tokio;
-#[cfg(feature="use-daemons")]
+
+// Support for node & node clients development (include API helpers)
+#[cfg(feature="use-node")]
 #[macro_use]
 extern crate async_trait;
-#[macro_use]
-pub extern crate bitcoin;
+#[cfg(feature="use-zmq")]
+extern crate zmq;
+
+// Lightning-network related functionality
 #[cfg(feature="use-lightning")]
 pub extern crate lightning;
 pub extern crate miniscript;
+
+// Buletproofs support
 #[cfg(feature="use-bulletproofs")]
 pub extern crate secp256k1zkp;
+
 
 #[macro_use]
 pub mod common;
@@ -67,5 +80,7 @@ pub mod seals;
 pub mod csv;
 #[cfg(feature="use-rgb")]
 pub mod rgb;
+#[cfg(feature="use-api")]
+pub mod api;
 
 pub use common::*;

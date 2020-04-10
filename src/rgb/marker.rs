@@ -1,5 +1,5 @@
 // LNP/BP Rust Library
-// Written in 2020 by
+// Written in 2019 by
 //     Dr. Maxim Orlovsky <orlovsky@pandoracore.com>
 //
 // To the extent possible under law, the author(s) have dedicated all
@@ -12,29 +12,12 @@
 // If not, see <https://opensource.org/licenses/MIT>.
 
 
-pub mod schema;
-pub mod schemata;
-
-pub mod marker;
-
-pub mod metadata;
-pub mod data;
-pub mod seal;
-pub mod state;
-pub mod script;
-pub mod transition;
-
-pub mod serialize;
-pub mod commit;
+use crate::csv::serialize;
+use super::*;
 
 
-pub use schemata::*;
+/// Marker trait for all RGB-related data types
+pub trait RgbData: serialize::Network { }
 
-pub use marker::*;
-
-pub use data::Data;
-pub use state::State;
-pub use metadata::Metadata;
-pub use script::Script;
-pub use seal::Seal;
-pub use transition::Transition;
+// TODO: Complete marker trait implementation for all RGB data types
+impl RgbData for Transition { }

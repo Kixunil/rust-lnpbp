@@ -16,6 +16,7 @@ use bitcoin::hashes::{
     sha256d, Hash
 };
 
+pub mod marker;
 #[macro_use]
 pub mod tagged256;
 pub mod scripts;
@@ -23,6 +24,7 @@ pub mod scripts;
 pub mod merkle;
 pub mod short_id;
 
+pub use marker::*;
 pub use scripts::*;
 #[cfg(feature="use-rgb")]
 pub use merkle::*;

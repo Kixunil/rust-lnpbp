@@ -11,30 +11,11 @@
 // along with this software.
 // If not, see <https://opensource.org/licenses/MIT>.
 
+mod error;
+mod encode;
 
-pub mod schema;
-pub mod schemata;
-
-pub mod marker;
-
-pub mod metadata;
-pub mod data;
-pub mod seal;
-pub mod state;
-pub mod script;
-pub mod transition;
-
-pub mod serialize;
-pub mod commit;
+pub use error::*;
+pub use encode::*;
 
 
-pub use schemata::*;
-
-pub use marker::*;
-
-pub use data::Data;
-pub use state::State;
-pub use metadata::Metadata;
-pub use script::Script;
-pub use seal::Seal;
-pub use transition::Transition;
+pub type Multipart = Vec<zmq::Message>;
